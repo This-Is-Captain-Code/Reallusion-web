@@ -11,32 +11,33 @@ function App() {
   const { client } = useConvaiClient('CHARACTER_ID', 'API_KEY');
   return (
     <>
-      <KeyboardControls
-        map={[
-          { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
-          { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
-          { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
-          { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
-          { name: 'sprint', keys: ['Shift'] },
-          { name: 'jump', keys: ['Space'] },
-        ]}
-      >
-        <Loader />
-        {/* <Leva /> */}
-        <Canvas
-          shadows
-          camera={{
-            position: [0, 0.8, 3],
-            fov: 75,
-          }}
-        >
-          <Experience client={client} />
-        </Canvas>
-      </KeyboardControls>
-      {/* {
-      client && */}
-      <ChatBubble client={client} />
-      {/* } */}
+      <div className="panel left-panel">
+        <h1>Control Panel</h1>
+        {/* Add your left panel content here */}
+      </div>
+      <div className="panel right-panel">
+        <KeyboardControls
+          map={[
+            { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
+            { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
+            { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
+            { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
+            { name: 'jump', keys: ['Space'] },
+          ]}>
+          <Loader />
+          <Canvas
+            shadows
+            camera={{
+              fov: 45,
+              near: 0.1,
+              far: 200,
+              position: [2.5, 4, 6],
+            }}>
+            <Experience client={client} />
+          </Canvas>
+        </KeyboardControls>
+        <ChatBubble client={client} />
+      </div>
     </>
   );
 }
