@@ -1,21 +1,36 @@
+
+import { Box } from '@mui/material';
 import { Canvas } from '@react-three/fiber';
 import { Experience } from './components/Experience';
-import { KeyboardControls, Loader } from '@react-three/drei';
-import { useConvaiClient } from './hooks/useConvaiClient';
-import ChatBubble from './components/chat/Chat';
+import { KeyboardControls } from '@react-three/drei';
+import { ConvaiClient } from 'convai-web-sdk';
+import { useEffect, useState } from 'react';
 
-function App() {
-  /**
-   * Add apikey and character id here
-   */
-  const { client } = useConvaiClient('CHARACTER_ID', 'API_KEY');
+export default function App() {
+  const [client, setClient] = useState(null);
+
+  useEffect(() => {
+    const convaiClient = new ConvaiClient({
+      apiKey: process.env.NEXT_PUBLIC_CONVAI_API_KEY,
+      characterId: process.env.NEXT_PUBLIC_CHARACTER_ID,
+    });
+    setClient(convaiClient);
+  }, []);
+
   return (
-    <>
-      <div className="panel left-panel">
+    <Box sx={{ display: 'flex', width: '100vw', height: '100vh' }}>
+      <Box sx={{ 
+        flex: 1, 
+        bgcolor: '#f5f5f5',
+        p: 2,
+        pointerEvents: 'auto',
+        userSelect: 'text'
+      }}>
         <h1>Control Panel</h1>
         {/* Add your left panel content here */}
-      </div>
-      <div className="panel right-panel">
+      </Box>
+      
+      <Box sx={{ flex: 2, position: 'relative' }}>
         <KeyboardControls
           map={[
             { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
@@ -24,7 +39,6 @@ function App() {
             { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
             { name: 'jump', keys: ['Space'] },
           ]}>
-          <Loader />
           <Canvas
             shadows
             camera={{
@@ -36,10 +50,7 @@ function App() {
             <Experience client={client} />
           </Canvas>
         </KeyboardControls>
-        <ChatBubble client={client} />
-      </div>
-    </>
+      </Box>
+    </Box>
   );
 }
-
-export default App;
