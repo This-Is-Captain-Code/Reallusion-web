@@ -48,12 +48,12 @@ const Navbar = () => {
           data-text="Oracle"
           sx={{ 
             color: '#0B5CD6',
-            fontFamily: 'VT323',
-            fontSize: '24px',
             textTransform: 'none',
           }}
         >
-          Oracle
+          <Typography variant="h3" sx={{ fontFamily: 'VT323', fontSize: '36px' }}>
+            Oracle
+          </Typography>
         </Button>
 
         <Box sx={{ display: 'flex', gap: 2 }}>
@@ -62,36 +62,36 @@ const Navbar = () => {
             data-text="[ Pools ]"
             sx={{ 
               color: '#0B5CD6',
-              fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Pools ]
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>
+              [ Pools ]
+            </Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
             data-text="[ Creator ]"
             sx={{ 
               color: '#0B5CD6',
-              fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Creator ]
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>
+              [ Creator ]
+            </Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
             data-text="[ Connect Wallet ]"
             sx={{ 
               color: '#0B5CD6',
-              fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Connect Wallet ]
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>
+              [ Connect Wallet ]
+            </Typography>
           </Button>
         </Box>
       </Toolbar>
