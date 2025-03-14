@@ -1,60 +1,115 @@
 
-import { AppBar, Toolbar, Box, IconButton, InputBase, Button } from '@mui/material';
-import { Search } from '@mui/icons-material';
+import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import { keyframes } from '@mui/system';
+
+const glitchAnim = keyframes`
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: skew(-0.5deg, -0.9deg);
+    opacity: 0.75;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: skew(0.8deg, -0.1deg);
+    opacity: 0.75;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: skew(-1deg, 0.2deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+`;
 
 const Navbar = () => {
   return (
     <AppBar position="static" sx={{ 
-      background: 'rgba(18, 18, 18, 0.8)',
-      backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid',
-      borderColor: 'grey.800'
+      background: '#000000',
+      boxShadow: 'none',
+      borderBottom: 'none'
     }}>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ 
-            position: 'relative',
-            backgroundColor: 'grey.900',
-            borderRadius: 1,
-            border: '1px solid',
-            borderColor: 'grey.800',
-            marginRight: 2,
-            padding: '4px 8px',
-            display: 'flex',
-            alignItems: 'center'
-          }}>
-            <Search sx={{ color: 'grey.500', mr: 1 }} />
-            <InputBase
-              placeholder="Search…"
-              sx={{
-                color: 'white',
-                '& .MuiInputBase-input': {
-                  padding: '4px 0',
-                }
-              }}
-            />
-          </Box>
-        </Box>
+      <Toolbar sx={{ justifyContent: 'space-between', px: 4 }}>
+        <Button 
+          sx={{ 
+            color: '#0B5CD6',
+            fontFamily: 'VT323',
+            fontSize: '24px',
+            textTransform: 'none',
+            '&:hover': {
+              animation: `${glitchAnim} 1s linear`,
+              background: 'none'
+            }
+          }}
+        >
+          Oracle
+        </Button>
         
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button 
-            variant="outlined"
             sx={{ 
-              borderColor: 'grey.700',
-              color: 'grey.300',
-              '&:hover': { borderColor: 'grey.500' }
+              color: '#0B5CD6',
+              fontFamily: 'VT323',
+              fontSize: '16px',
+              textTransform: 'none',
+              '&:hover': {
+                animation: `${glitchAnim} 1s linear`,
+                background: 'none'
+              }
             }}
           >
-            Portfolio
+            [ Pools ]
           </Button>
           <Button 
-            variant="contained"
             sx={{ 
-              background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
-              boxShadow: '0 3px 5px 2px rgba(33, 150, 243, .3)'
+              color: '#0B5CD6',
+              fontFamily: 'VT323',
+              fontSize: '16px',
+              textTransform: 'none',
+              '&:hover': {
+                animation: `${glitchAnim} 1s linear`,
+                background: 'none'
+              }
             }}
           >
-            Connect Wallet
+            [ Creator ]
+          </Button>
+          <Button 
+            sx={{ 
+              color: '#0B5CD6',
+              fontFamily: 'VT323',
+              fontSize: '16px',
+              textTransform: 'none',
+              '&:hover': {
+                animation: `${glitchAnim} 1s linear`,
+                background: 'none'
+              }
+            }}
+          >
+            [ Connect Wallet ]
           </Button>
         </Box>
       </Toolbar>
