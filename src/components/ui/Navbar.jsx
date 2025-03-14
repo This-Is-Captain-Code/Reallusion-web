@@ -1,7 +1,5 @@
 
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
 
 const Navbar = () => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
@@ -9,7 +7,6 @@ const Navbar = () => {
   const scrambleText = (target, originalText) => {
     let currentText = originalText;
     let iteration = 0;
-    const duration = 0.5;
     
     clearInterval(target.interval);
     
@@ -38,9 +35,10 @@ const Navbar = () => {
 
   return (
     <AppBar position="static" sx={{ 
-      background: '#000000',
+      background: 'transparent',
       boxShadow: 'none',
-      borderBottom: 'none'
+      borderBottom: 'none',
+      pt: 2
     }}>
       <Toolbar sx={{ justifyContent: 'space-between', px: 4 }}>
         <Button 

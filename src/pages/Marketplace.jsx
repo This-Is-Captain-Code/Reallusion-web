@@ -1,3 +1,4 @@
+
 import { Box, Card, CardContent, Typography, Container } from "@mui/material";
 
 const items = Array(10).fill({
@@ -37,9 +38,17 @@ const Marketplace = () => {
                 mb: 2,
               }}
             />
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Typography sx={{ color: "#0B5CD6", cursor: "pointer", fontFamily: "VT323" }}>
+                {"[ W ]"}
+              </Typography>
+              <Typography sx={{ color: "#0B5CD6", cursor: "pointer", fontFamily: "VT323" }}>
+                {"[ N ]"}
+              </Typography>
+            </Box>
           </Box>
           <Box sx={{ flex: 1, pt: 4 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+            <Box sx={{ display: "flex", alignItems: "baseline", gap: 2, mb: 2 }}>
               <Typography
                 variant="h4"
                 sx={{ fontFamily: "VT323", color: "#666" }}
@@ -49,7 +58,7 @@ const Marketplace = () => {
               <Typography component="span" sx={{ fontSize: 24, mr: 1 }}>
                 🔥
               </Typography>
-              <Typography sx={{ color: "#4CAF50", fontSize: 24 }}>
+              <Typography sx={{ color: "#4CAF50", fontSize: 24, fontFamily: "VT323" }}>
                 {marketData.percentChange}
               </Typography>
             </Box>
@@ -58,35 +67,27 @@ const Marketplace = () => {
               variant="h1"
               sx={{
                 fontFamily: "VT323",
-                fontSize: "72px",
+                fontSize: "96px",
                 mb: 4,
+                letterSpacing: "-2px"
               }}
             >
               {marketData.name}
             </Typography>
 
             <Box sx={{ display: "grid", gap: 2 }}>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>Market Cap:</Typography>
-                <Typography>{marketData.marketCap}</Typography>
+              <Box sx={{ display: "flex", justifyContent: "space-between", fontFamily: "VT323", fontSize: "18px" }}>
+                <Typography sx={{ color: "#666", fontFamily: "inherit" }}>Market Cap:</Typography>
+                <Typography sx={{ fontFamily: "inherit" }}>{marketData.marketCap}</Typography>
               </Box>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>24H Vol:</Typography>
-                <Typography>{marketData.vol24h}</Typography>
+              <Box sx={{ display: "flex", justifyContent: "space-between", fontFamily: "VT323", fontSize: "18px" }}>
+                <Typography sx={{ color: "#666", fontFamily: "inherit" }}>24H Vol:</Typography>
+                <Typography sx={{ fontFamily: "inherit" }}>{marketData.vol24h}</Typography>
               </Box>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>All-Time Vol:</Typography>
-                <Typography>{marketData.volAllTime}</Typography>
+              <Box sx={{ display: "flex", justifyContent: "space-between", fontFamily: "VT323", fontSize: "18px" }}>
+                <Typography sx={{ color: "#666", fontFamily: "inherit" }}>All-Time Vol:</Typography>
+                <Typography sx={{ fontFamily: "inherit" }}>{marketData.volAllTime}</Typography>
               </Box>
-            </Box>
-
-            <Box sx={{ display: "flex", gap: 2, mt: 4 }}>
-              <Typography sx={{ color: "#0B5CD6", cursor: "pointer" }}>
-                {"[ W ]"}
-              </Typography>
-              <Typography sx={{ color: "#0B5CD6", cursor: "pointer" }}>
-                {"[ N ]"}
-              </Typography>
             </Box>
           </Box>
         </Box>
@@ -210,9 +211,9 @@ const Marketplace = () => {
             fontFamily: "VT323",
           }}
         >
-          <Typography>{"[ << ]"}</Typography>
-          <Typography>{"[ 1 / 54 ]"}</Typography>
-          <Typography>{"[ >> ]"}</Typography>
+          <Typography sx={{ fontFamily: "inherit" }}>{"[ << ]"}</Typography>
+          <Typography sx={{ fontFamily: "inherit" }}>{"[ 1 / 54 ]"}</Typography>
+          <Typography sx={{ fontFamily: "inherit" }}>{"[ >> ]"}</Typography>
         </Box>
       </Container>
     </Box>
