@@ -41,15 +41,15 @@ const Marketplace = () => {
           <Box sx={{ flex: 1, pt: 4 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
               <Typography
-                variant="h4"
+                variant="h2"
                 sx={{ fontFamily: "VT323", color: "#666" }}
               >
                 Featured
               </Typography>
-              <Typography component="span" sx={{ fontSize: 24, mr: 1 }}>
+              <Typography variant="h2" component="span" sx={{ mr: 1 }}>
                 🔥
               </Typography>
-              <Typography sx={{ color: "#4CAF50", fontSize: 24 }}>
+              <Typography variant="h2" sx={{ color: "#4CAF50" }}>
                 {marketData.percentChange}
               </Typography>
             </Box>
@@ -58,7 +58,7 @@ const Marketplace = () => {
               variant="h1"
               sx={{
                 fontFamily: "VT323",
-                fontSize: "72px",
+                fontSize: "96px",
                 mb: 4,
               }}
             >
@@ -67,8 +67,8 @@ const Marketplace = () => {
 
             <Box sx={{ display: "grid", gap: 2 }}>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>Market Cap:</Typography>
-                <Typography>{marketData.marketCap}</Typography>
+                <Typography variant="h5" sx={{ color: "#666" }}>Market Cap:</Typography>
+                <Typography variant="h5">{marketData.marketCap}</Typography>
               </Box>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography sx={{ color: "#666" }}>24H Vol:</Typography>

@@ -1,18 +1,17 @@
-
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 const Navbar = () => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
-  
+
   const scrambleText = (target, originalText) => {
     let currentText = originalText;
     let iteration = 0;
     const duration = 0.5;
-    
+
     clearInterval(target.interval);
-    
+
     target.interval = setInterval(() => {
       target.innerText = currentText
         .split('')
@@ -23,11 +22,11 @@ const Navbar = () => {
           return chars[Math.floor(Math.random() * chars.length)];
         })
         .join('');
-        
+
       if (iteration >= originalText.length) {
         clearInterval(target.interval);
       }
-      
+
       iteration += 1 / 3;
     }, 30);
   };
@@ -49,11 +48,10 @@ const Navbar = () => {
           sx={{ 
             color: '#0B5CD6',
             fontFamily: 'VT323',
-            fontSize: '24px',
             textTransform: 'none',
           }}
         >
-          Oracle
+          <Typography variant="h4" sx={{ fontFamily: 'VT323' }}>Oracle</Typography>
         </Button>
 
         <Box sx={{ display: 'flex', gap: 2 }}>
@@ -63,11 +61,10 @@ const Navbar = () => {
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Pools ]
+            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Pools ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -75,11 +72,10 @@ const Navbar = () => {
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Creator ]
+            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Creator ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -87,11 +83,10 @@ const Navbar = () => {
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
-              fontSize: '16px',
               textTransform: 'none',
             }}
           >
-            [ Connect Wallet ]
+            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Connect Wallet ]</Typography>
           </Button>
         </Box>
       </Toolbar>
