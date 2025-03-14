@@ -102,11 +102,10 @@ function AgentInteraction() {
               id="tradingview-widget"
               sx={{
                 width: "40%",
-                height: "75%", 
+                height: "100%",
                 bgcolor: "rgba(0,0,0,0.8)",
                 borderRight: "1px solid rgba(255,255,255,0.1)",
                 overflow: "hidden",
-                margin: "auto 0",
               }}
           >
             <div
