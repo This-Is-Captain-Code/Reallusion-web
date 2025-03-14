@@ -1,51 +1,41 @@
-
 import { AppBar, Toolbar, Box, Button } from '@mui/material';
-import { keyframes } from '@mui/system';
+import { useState, useEffect } from 'react';
 
-const glitchAnim = keyframes`
-  0% {
-    transform: none;
-    opacity: 1;
-  }
-  7% {
-    transform: skew(-0.5deg, -0.9deg);
-    opacity: 0.75;
-  }
-  10% {
-    transform: none;
-    opacity: 1;
-  }
-  27% {
-    transform: none;
-    opacity: 1;
-  }
-  30% {
-    transform: skew(0.8deg, -0.1deg);
-    opacity: 0.75;
-  }
-  35% {
-    transform: none;
-    opacity: 1;
-  }
-  52% {
-    transform: none;
-    opacity: 1;
-  }
-  55% {
-    transform: skew(-1deg, 0.2deg);
-    opacity: 0.75;
-  }
-  50% {
-    transform: none;
-    opacity: 1;
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-`;
+const generateRandomChar = () => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+  return chars[Math.floor(Math.random() * chars.length)];
+};
 
 const Navbar = () => {
+  const [hoveredText, setHoveredText] = useState('');
+  const [originalText, setOriginalText] = useState('');
+  const [isGlitching, setIsGlitching] = useState(false);
+
+  useEffect(() => {
+    if (isGlitching) {
+      let iterations = 0;
+      const interval = setInterval(() => {
+        setHoveredText(prev => 
+          prev.split('').map((char, idx) => 
+            iterations >= idx ? originalText[idx] : generateRandomChar()
+          ).join('')
+        );
+        iterations += 1;
+        if (iterations >= originalText.length) {
+          clearInterval(interval);
+          setIsGlitching(false);
+        }
+      }, 30);
+      return () => clearInterval(interval);
+    }
+  }, [isGlitching, originalText]);
+
+  const handleHover = (text) => {
+    setOriginalText(text);
+    setHoveredText(text);
+    setIsGlitching(true);
+  };
+
   return (
     <AppBar position="static" sx={{ 
       background: '#000000',
@@ -54,62 +44,50 @@ const Navbar = () => {
     }}>
       <Toolbar sx={{ justifyContent: 'space-between', px: 4 }}>
         <Button 
+          onMouseEnter={() => handleHover('Oracle')}
           sx={{ 
             color: '#0B5CD6',
             fontFamily: 'VT323',
             fontSize: '24px',
             textTransform: 'none',
-            '&:hover': {
-              animation: `${glitchAnim} 1s linear`,
-              background: 'none'
-            }
           }}
         >
-          Oracle
+          {hoveredText === 'Oracle' ? hoveredText : 'Oracle'}
         </Button>
-        
+
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button 
+            onMouseEnter={() => handleHover('[ Pools ]')}
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
               fontSize: '16px',
               textTransform: 'none',
-              '&:hover': {
-                animation: `${glitchAnim} 1s linear`,
-                background: 'none'
-              }
             }}
           >
-            [ Pools ]
+            {hoveredText === '[ Pools ]' ? hoveredText : '[ Pools ]'}
           </Button>
           <Button 
+            onMouseEnter={() => handleHover('[ Creator ]')}
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
               fontSize: '16px',
               textTransform: 'none',
-              '&:hover': {
-                animation: `${glitchAnim} 1s linear`,
-                background: 'none'
-              }
             }}
           >
-            [ Creator ]
+            {hoveredText === '[ Creator ]' ? hoveredText : '[ Creator ]'}
           </Button>
           <Button 
+            onMouseEnter={() => handleHover('[ Connect Wallet ]')}
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
               fontSize: '16px',
               textTransform: 'none',
-              '&:hover': {
-                animation: `${glitchAnim} 1s linear`,
-                background: 'none'
-              }
             }}
           >
-            [ Connect Wallet ]
+            {hoveredText === '[ Connect Wallet ]' ? hoveredText : '[ Connect Wallet ]'}
           </Button>
         </Box>
       </Toolbar>
