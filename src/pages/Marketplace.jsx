@@ -112,6 +112,10 @@ const Marketplace = () => {
                   borderRadius: 0,
                   position: "relative",
                   height: "100%",
+                  cursor: "pointer",
+                  "&:hover": {
+                    border: "1px solid #0B5CD6",
+                  },
                   "&:before": {
                     content: '"»"',
                     position: "absolute",
@@ -123,12 +127,12 @@ const Marketplace = () => {
                   },
                 }}
               >
-                <CardContent sx={{ p: "16px !important" }}>
+                <CardContent sx={{ p: "12px !important" }}>
                   <Box sx={{ position: "relative" }}>
                     <Typography
                       sx={{
                         position: "absolute",
-                        top: -8,
+                        top: -4,
                         left: 0,
                         fontFamily: "VT323",
                         color: "#0B5CD6",
@@ -144,16 +148,17 @@ const Marketplace = () => {
                     sx={{
                       width: "100%",
                       height: "auto",
-                      mb: 2,
+                      mb: 1,
                       bgcolor: "#000B14",
                     }}
                   />
                   <Typography
                     sx={{
                       fontFamily: "VT323",
-                      fontSize: "18px",
-                      mb: 1,
+                      fontSize: "16px",
+                      mb: 0.5,
                       color: "#fff",
+                      textAlign: "center",
                     }}
                   >
                     {item.name}
