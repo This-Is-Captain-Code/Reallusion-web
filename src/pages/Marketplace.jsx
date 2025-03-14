@@ -91,7 +91,7 @@ const Marketplace = () => {
           {items.map((item, index) => (
             <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
               <Card sx={{ 
-                bgcolor: '#000', 
+                bgcolor: 'transparent', 
                 border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: 0,
                 position: 'relative',
@@ -101,7 +101,7 @@ const Marketplace = () => {
                   position: 'absolute',
                   right: 8,
                   top: 4,
-                  color: 'rgba(255,255,255,0.3)',
+                  color: '#0B5CD6',
                   fontSize: '24px',
                   fontFamily: 'VT323'
                 }
@@ -114,7 +114,7 @@ const Marketplace = () => {
                         top: -8,
                         left: 0,
                         fontFamily: 'VT323',
-                        opacity: 0.3,
+                        color: '#0B5CD6',
                         fontSize: '14px'
                       }}
                     >
@@ -131,13 +131,13 @@ const Marketplace = () => {
                       bgcolor: '#000B14'
                     }}
                   />
-                  <Typography sx={{ fontFamily: 'VT323', fontSize: '18px', mb: 1 }}>
+                  <Typography sx={{ fontFamily: 'VT323', fontSize: '18px', mb: 1, color: '#fff' }}>
                     {item.name}
                   </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Typography sx={{ fontFamily: 'VT323', fontSize: '14px' }}>{item.price}</Typography>
-                    <Typography sx={{ color: '#4CAF50', fontFamily: 'VT323', fontSize: '14px' }}>{item.change}</Typography>
-                    <Typography sx={{ opacity: 0.5, fontFamily: 'VT323', fontSize: '14px' }}>{item.ticker}</Typography>
+                    <Typography sx={{ fontFamily: 'VT323', fontSize: '14px', color: '#fff' }}>{item.price}</Typography>
+                    <Typography sx={{ color: '#0B5CD6', fontFamily: 'VT323', fontSize: '14px' }}>{item.change}</Typography>
+                    <Typography sx={{ color: '#0B5CD6', fontFamily: 'VT323', fontSize: '14px' }}>{item.ticker}</Typography>
                   </Box>
                 </CardContent>
               </Card>
