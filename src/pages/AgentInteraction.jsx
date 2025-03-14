@@ -59,9 +59,9 @@ function AgentInteraction() {
     >
       <Box
         sx={{
-          display: "flex",
-          flex: 1,
-          p: 0,
+          display: "grid",
+          gridTemplateColumns: "300px 1fr",
+          gridTemplateRows: "400px 1fr",
           gap: 0,
           height: "calc(100vh - 64px)",
         }}
@@ -69,12 +69,11 @@ function AgentInteraction() {
         <Paper
           elevation={0}
           sx={{
-            width: "300px",
             bgcolor: "rgba(0,0,0,0.8)",
             p: 3,
             borderRadius: 0,
             borderRight: "1px solid rgba(255,255,255,0.1)",
-            height: "100%",
+            gridRow: "1 / -1",
             overflow: "auto",
           }}
         >
@@ -91,81 +90,70 @@ function AgentInteraction() {
         </Paper>
 
         <Box
+          id="tradingview-widget"
           sx={{
-            flexGrow: 1,
-            display: "flex",
-            height: "100%",
+            bgcolor: "rgba(0,0,0,0.8)",
+            borderBottom: "1px solid rgba(255,255,255,0.1)",
             overflow: "hidden",
           }}
         >
-          <Box
-              id="tradingview-widget"
-              sx={{
-                width: "40%",
-                height: "100%",
-                bgcolor: "rgba(0,0,0,0.8)",
-                borderRight: "1px solid rgba(255,255,255,0.1)",
-                overflow: "hidden",
-              }}
+          <div
+            className="tradingview-widget-container"
+            style={{ height: "100%" }}
           >
             <div
-              className="tradingview-widget-container"
+              className="tradingview-widget-container__widget"
               style={{ height: "100%" }}
-            >
-              <div
-                className="tradingview-widget-container__widget"
-                style={{ height: "100%" }}
-              ></div>
-            </div>
-          </Box>
+            ></div>
+          </div>
+        </Box>
+
+        <Box
+          sx={{
+            position: "relative",
+            overflow: "hidden",
+            gridRow: "2/3",
+            gridColumn: "2/3",
+          }}
+        >
+          <KeyboardControls
+            map={[
+              { name: "forward", keys: ["ArrowUp", "w", "W"] },
+              { name: "backward", keys: ["ArrowDown", "s", "S"] },
+              { name: "left", keys: ["ArrowLeft", "a", "A"] },
+              { name: "right", keys: ["ArrowRight", "d", "D"] },
+              { name: "jump", keys: ["Space"] },
+            ]}
+          >
+            <Box sx={{ width: "100%", height: "70vh", position: "relative" }}>
+              <Loader />
+              <Canvas
+                shadows
+                camera={{
+                  fov: 45,
+                  near: 0.1,
+                  far: 200,
+                  position: [2.5, 4, 6],
+                }}
+              >
+                <Experience client={client} />
+              </Canvas>
+            </Box>
+          </KeyboardControls>
 
           <Box
             sx={{
-              flexGrow: 1,
-              position: "relative",
-              height: "100%",
-              overflow: "hidden",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              bgcolor: "background.paper",
+              borderTop: "1px solid rgba(255,255,255,0.1)",
+              p: 2,
+              maxHeight: "30vh",
             }}
           >
-            <KeyboardControls
-              map={[
-                { name: "forward", keys: ["ArrowUp", "w", "W"] },
-                { name: "backward", keys: ["ArrowDown", "s", "S"] },
-                { name: "left", keys: ["ArrowLeft", "a", "A"] },
-                { name: "right", keys: ["ArrowRight", "d", "D"] },
-                { name: "jump", keys: ["Space"] },
-              ]}
-            >
-              <Box sx={{ width: "100%", height: "70vh", position: "relative" }}>
-                <Loader />
-                <Canvas
-                  shadows
-                  camera={{
-                    fov: 45,
-                    near: 0.1,
-                    far: 200,
-                    position: [2.5, 4, 6],
-                  }}
-                >
-                  <Experience client={client} />
-                </Canvas>
-              </Box>
-            </KeyboardControls>
-
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                bgcolor: "background.paper",
-                borderTop: "1px solid rgba(255,255,255,0.1)",
-                p: 2,
-                maxHeight: "30vh",
-              }}
-            >
-              <ChatBubble client={client} />
-            </Box>
+            <ChatBubble client={client} />
           </Box>
         </Box>
       </Box>
