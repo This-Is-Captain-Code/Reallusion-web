@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Box, TextField, IconButton, Typography, Paper } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
@@ -63,10 +62,11 @@ const ChatBubble = (props) => {
             <Paper 
               elevation={1}
               sx={{
-                p: 1,
+                p: 1.5,
                 maxWidth: '70%',
-                bgcolor: message.sender === 'user' ? 'primary.main' : 'background.default',
-                color: message.sender === 'user' ? 'white' : 'text.primary'
+                bgcolor: message.sender === 'user' ? 'primary.main' : 'background.paper',
+                border: message.sender === 'npc' ? '1px solid rgba(255,255,255,0.1)' : 'none',
+                color: 'white'
               }}
             >
               <Typography variant="body1" sx={{ fontFamily: 'VT323' }}>
