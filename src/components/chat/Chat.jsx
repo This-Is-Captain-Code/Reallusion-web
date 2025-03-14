@@ -6,13 +6,15 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
-const ChatBubble = ({ client }) => {
+const ChatBubble = (props) => {
+  const { client } = props;
   const [text, setText] = useState("");
   const [feedbacks, setFeedbacks] = useState([]);
 
   const handleSend = () => {
     if (text.trim()) {
-      client.sendTextMessage(text);
+      client.setUserText(text);
+      client.setEnter(true);
       setText("");
     }
   };
@@ -26,7 +28,7 @@ const ChatBubble = ({ client }) => {
 
   const handleFeedback = (messageIdx, feedback) => {
     const newFeedbacks = [...feedbacks];
-    newFeedbacks[messageIdx] = feedback === newFeedbacks[messageIdx] ? 0 : feedback;
+    newFeedbacks[messageIdx] = feedback;
     setFeedbacks(newFeedbacks);
   };
 
@@ -48,12 +50,14 @@ const ChatBubble = ({ client }) => {
         flexDirection: 'column',
         gap: 1
       }}>
-        {client.messages?.map((message, idx) => (
+        {client?.messages?.map((message, idx) => (
           <Box 
             key={idx}
             sx={{
               display: 'flex',
               justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
+              alignItems: 'flex-start',
+              gap: 1,
               width: '100%'
             }}
           >
@@ -84,7 +88,7 @@ const ChatBubble = ({ client }) => {
                   fontSize: '1.1rem'
                 }}
               >
-                {message.text || message.content}
+                {message.content}
               </Typography>
               {message.sender === 'npc' && (
                 <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
