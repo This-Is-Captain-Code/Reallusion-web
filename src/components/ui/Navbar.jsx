@@ -64,7 +64,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Pools ]</Typography>
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>[ Pools ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -75,7 +75,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Creator ]</Typography>
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>[ Creator ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -86,7 +86,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Connect Wallet ]</Typography>
+            <Typography variant="h4" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>[ Connect Wallet ]</Typography>
           </Button>
         </Box>
       </Toolbar>
