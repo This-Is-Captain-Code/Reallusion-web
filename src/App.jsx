@@ -1,14 +1,12 @@
-import CreateAgent from './pages/CreateAgent';
+
+import { Box } from '@mui/material';
 import Marketplace from './pages/Marketplace';
-import AgentInteraction from './pages/AgentInteraction';
-import './styles/globals.css';
-import './styles/ui.css';
 
 function App() {
   return (
-    <div className="w-full h-full">
+    <Box sx={{ width: '100%', height: '100%' }}>
       <Marketplace />
-    </div>
+    </Box>
   );
 }
 
