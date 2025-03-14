@@ -51,7 +51,7 @@ const Navbar = () => {
             textTransform: 'none',
           }}
         >
-          <Typography variant="h4" sx={{ fontFamily: 'VT323' }}>Oracle</Typography>
+          <Typography variant="h3" sx={{ fontFamily: 'VT323' }}>Oracle</Typography>
         </Button>
 
         <Box sx={{ display: 'flex', gap: 2 }}>
@@ -64,7 +64,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Pools ]</Typography>
+            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Pools ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -75,7 +75,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Creator ]</Typography>
+            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Creator ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
@@ -86,7 +86,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            <Typography variant="h6" sx={{ fontFamily: 'VT323' }}>[ Connect Wallet ]</Typography>
+            <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Connect Wallet ]</Typography>
           </Button>
         </Box>
       </Toolbar>
