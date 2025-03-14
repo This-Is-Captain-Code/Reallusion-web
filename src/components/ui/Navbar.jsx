@@ -15,25 +15,28 @@ const Navbar = () => {
     if (isGlitching) {
       let iterations = 0;
       const interval = setInterval(() => {
+        iterations += 1;
         setHoveredText(prev => 
-          prev.split('').map((char, idx) => 
-            iterations >= idx ? originalText[idx] : generateRandomChar()
+          originalText.split('').map((char, idx) => 
+            Math.random() > 0.5 ? originalText[idx] : generateRandomChar()
           ).join('')
         );
-        iterations += 1;
-        if (iterations >= originalText.length) {
+        if (iterations > 10) {
           clearInterval(interval);
+          setHoveredText(originalText);
           setIsGlitching(false);
         }
-      }, 30);
+      }, 50);
       return () => clearInterval(interval);
     }
   }, [isGlitching, originalText]);
 
   const handleHover = (text) => {
-    setOriginalText(text);
-    setHoveredText(text);
-    setIsGlitching(true);
+    if (!isGlitching) {
+      setOriginalText(text);
+      setHoveredText(text.split('').map(() => generateRandomChar()).join(''));
+      setIsGlitching(true);
+    }
   };
 
   return (
