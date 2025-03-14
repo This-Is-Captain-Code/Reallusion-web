@@ -39,20 +39,12 @@ const Navbar = () => {
     <AppBar position="static" sx={{ 
       background: '#000000',
       boxShadow: 'none',
-      borderBottom: 'none'
+      borderBottom: 'none',
+      pt:2,
     }}>
       <Toolbar sx={{ justifyContent: 'space-between', px: 4 }}>
-        <Button 
-          onMouseEnter={handleHover}
-          data-text="Oracle"
-          sx={{ 
-            color: '#0B5CD6',
-            fontFamily: 'VT323',
-            textTransform: 'none',
-          }}
-        >
-          <Typography variant="h3" sx={{ fontFamily: 'VT323' }}>Oracle</Typography>
-        </Button>
+        <Typography variant="h3" sx={{ fontFamily: 'VT323' }}>Oracle</Typography>
+
 
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button 
