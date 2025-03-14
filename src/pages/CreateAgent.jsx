@@ -1,9 +1,7 @@
-import { useState } from 'react'; 
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Upload } from "lucide-react";
+
+import { useState } from 'react';
+import { Card, CardContent, TextField, Box, Button } from '@mui/material';
+import { Upload } from '@mui/icons-material';
 import Navbar from '../components/ui/Navbar';
 
 export default function CreateAgent() {
@@ -12,56 +10,110 @@ export default function CreateAgent() {
   const [description, setDescription] = useState("");
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <Box sx={{ bgcolor: 'grey.900', minHeight: '100vh', color: 'white' }}>
       <Navbar />
-      <div className="flex justify-center items-center w-full bg-gray-900 text-white px-4 py-12 relative">
-        {/* Background Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-40" />
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', px: 4, py: 12, position: 'relative' }}>
+        <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, #1a1a1a, #000)', opacity: 0.4 }} />
         
-        <div className="relative w-[120vh] min-h-[80vh] bg-gray-800 p-12 rounded-xl shadow-2xl border border-gray-700 backdrop-blur-lg flex flex-col">
-          <h2 className="text-2xl font-semibold text-center mb-6">Create an Agent</h2>
-          
-          {/* Form Fields */}
-          <div className="grid grid-cols-2 gap-12 w-full">
-            <div className="flex flex-col gap-6">
-              <label className="text-gray-300">Agent Name</label>
-              <Input placeholder="Enter Agent Name" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-purple-500" />
-              
-              <label className="text-gray-300">Ticket (4 letters max)</label>
-              <Input placeholder="Enter Ticket" maxLength={4} value={ticket} onChange={(e) => setTicket(e.target.value)} className="bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500" />
-              
-              <label className="text-gray-300">Description</label>
-              <Textarea placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)} className="h-32 bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-green-500 h-[14rem]" />
-              
-              {/* Create Button */}
-              <Button className="button button-primary mt-auto text-white py-3 rounded-lg shadow-md backdrop-blur-md h-[45pt]">+ Create</Button>
-            </div>
+        <Card sx={{ width: '120vh', minHeight: '80vh', bgcolor: 'grey.800', p: 12, borderRadius: 4, boxShadow: 20, border: '1px solid', borderColor: 'grey.700', backdropFilter: 'blur(8px)', position: 'relative' }}>
+          <CardContent>
+            <Box sx={{ textAlign: 'center', mb: 6, typography: 'h4', fontWeight: 600 }}>Create an Agent</Box>
             
-            {/* Right Section */}
-            <div className="flex flex-col w-full">
-              {/* Model Preview Box (Square) */}
-              <div className="w-full aspect-square flex justify-center items-center border-2 border-gray-600 rounded-lg bg-gray-700 hover:border-gradient-to-r from-purple-500 to-blue-500">
-                <span className="text-gray-400">Model Preview</span>
-              </div>
+            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <TextField 
+                  label="Agent Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  variant="outlined"
+                  sx={{ input: { color: 'white' }, label: { color: 'grey.300' } }}
+                />
+                
+                <TextField 
+                  label="Ticket (4 letters max)"
+                  value={ticket}
+                  onChange={(e) => setTicket(e.target.value)}
+                  inputProps={{ maxLength: 4 }}
+                  variant="outlined"
+                  sx={{ input: { color: 'white' }, label: { color: 'grey.300' } }}
+                />
+                
+                <TextField 
+                  label="Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  multiline
+                  rows={8}
+                  variant="outlined"
+                  sx={{ textarea: { color: 'white' }, label: { color: 'grey.300' } }}
+                />
+                
+                <Button variant="contained" sx={{ mt: 'auto', py: 3, height: '45pt' }}>
+                  + Create
+                </Button>
+              </Box>
               
-              {/* Upload Buttons Below Model Preview */}
-              <div className="flex gap-6 mt-6 w-full">
-                <Button variant="outline" className="button w-1/2 h-22 bg-gray-700 border border-gray-600 rounded-lg flex flex-col items-center justify-center hover:border-gradient-to-r from-blue-400 to-purple-500">
-                  <Upload className="w-8 h-8 text-gray-400" />
-                  <span className="mt-2 text-gray-300">Upload Image</span>
-                </Button>
-                <Button variant="outline" className="button w-1/2 h-22 bg-gray-700 border border-gray-600 rounded-lg flex flex-col items-center justify-center hover:border-gradient-to-r from-green-400 to-teal-500">
-                  <Upload className="w-8 h-8 text-gray-400" />
-                  <div className='col'>
-                    <span className="mt-2 text-gray-300">Upload Model</span>
-                    <span className="mt-2 text-gray-400 block">glb / gltf</span>
-                  </div>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{ 
+                  width: '100%', 
+                  aspectRatio: '1/1', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                  border: 2,
+                  borderColor: 'grey.600',
+                  borderRadius: 2,
+                  bgcolor: 'grey.700',
+                  '&:hover': { borderImage: 'linear-gradient(to right, #9c27b0, #2196f3) 1' }
+                }}>
+                  <Box sx={{ color: 'grey.400' }}>Model Preview</Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', gap: 6, mt: 6 }}>
+                  <Button 
+                    variant="outlined" 
+                    sx={{ 
+                      width: '50%', 
+                      height: 88,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      bgcolor: 'grey.700',
+                      border: 1,
+                      borderColor: 'grey.600',
+                      '&:hover': { borderImage: 'linear-gradient(to right, #2196f3, #9c27b0) 1' }
+                    }}
+                  >
+                    <Upload sx={{ width: 32, height: 32, color: 'grey.400', mb: 2 }} />
+                    <Box sx={{ color: 'grey.300' }}>Upload Image</Box>
+                  </Button>
+                  
+                  <Button 
+                    variant="outlined"
+                    sx={{ 
+                      width: '50%',
+                      height: 88,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      bgcolor: 'grey.700',
+                      border: 1,
+                      borderColor: 'grey.600',
+                      '&:hover': { borderImage: 'linear-gradient(to right, #4caf50, #009688) 1' }
+                    }}
+                  >
+                    <Upload sx={{ width: 32, height: 32, color: 'grey.400', mb: 2 }} />
+                    <Box>
+                      <Box sx={{ color: 'grey.300' }}>Upload Model</Box>
+                      <Box sx={{ color: 'grey.400', mt: 1 }}>glb / gltf</Box>
+                    </Box>
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
+    </Box>
   );
 }
