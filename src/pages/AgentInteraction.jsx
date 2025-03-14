@@ -49,13 +49,13 @@ function AgentInteraction() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', bgcolor: 'background.default', minHeight: '100vh' }}>
       <Navbar />
-      <Box sx={{ display: 'flex', flex: 1, p: 0, gap: 0, height: 'calc(100vh - 64px)' }}>
+      <Box sx={{ display: 'flex', flex: 1, height: 'calc(100vh - 64px)' }}>
       <Paper 
         elevation={0} 
         sx={{ 
-          width: '300px',
+          width: '250px',
           bgcolor: 'rgba(0,0,0,0.8)',
-          p: 3,
+          p: 2,
           borderRadius: 0,
           borderRight: '1px solid rgba(255,255,255,0.1)',
           height: '100%',
@@ -63,11 +63,12 @@ function AgentInteraction() {
         }}
       >
         <Typography 
-          variant="h4" 
+          variant="h5" 
           sx={{ 
             fontFamily: 'VT323',
             color: 'white',
-            mb: 2 
+            mb: 2,
+            pl: 1
           }}
         >
           Control Panel
@@ -78,7 +79,7 @@ function AgentInteraction() {
         <Box 
           id="tradingview-widget"
           sx={{ 
-            width: '40%',
+            width: '35%',
             height: '100%',
             bgcolor: 'rgba(0,0,0,0.8)',
             borderRight: '1px solid rgba(255,255,255,0.1)',
@@ -100,7 +101,7 @@ function AgentInteraction() {
               { name: 'jump', keys: ['Space'] },
             ]}
           >
-            <Box sx={{ width: '100%', height: '70vh', position: 'relative' }}>
+            <Box sx={{ width: '100%', height: '75vh', position: 'relative' }}>
               <Loader />
               <Canvas
                 shadows
@@ -123,8 +124,8 @@ function AgentInteraction() {
             right: 0,
             bgcolor: 'background.paper',
             borderTop: '1px solid rgba(255,255,255,0.1)',
-            p: 2,
-            maxHeight: '30vh'
+            p: 1.5,
+            height: '25vh'
           }}>
             <ChatBubble client={client} />
           </Box>
