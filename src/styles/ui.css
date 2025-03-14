@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* Custom styles for glass-like effect and gradients */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-lg {
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Theme for labels */
+.label {
+  @apply text-sm font-bold text-gray-400; /* Smaller size, bold, gray color */
+}
+
+/* Theme for text */
+.text {
+  @apply text-base text-white; /* Normal size, white color */
+}
+
+.button {
+  @apply px-4 py-2 rounded-md transition-all duration-300 flex items-center gap-2;
+  background: linear-gradient(145deg, theme('colors.gray.700'), theme('colors.gray.800'));
+  color: theme('colors.white');
+  border: 2pt solid theme('colors.gray.800');
+  border-radius: 8pt;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+  background: linear-gradient(145deg, theme('colors.gray.600'), theme('colors.gray.800'));
+  border-radius: 8pt;
+  border-color: #9ba9cf70; /* Change border color only */
+}
+
+/* Smooth background color transition */
+.button {
+  transition: background 0.5s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* Button variants */
+.button-primary {
+  background: linear-gradient(145deg, #09275a, #200649);
+  border: 2pt solid #00153870;
+}
+
+/* Hover effect for button-primary */
+.button-primary:hover {
+  background: linear-gradient(145deg, #113572, #1f0647);
+  border-color: #536eb970;
+}
+
+/* Responsive styles for grid cards */
+@media (max-width: 1280px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
