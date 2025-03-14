@@ -155,7 +155,7 @@ const Marketplace = () => {
                   <Typography
                     sx={{
                       fontFamily: "VT323",
-                      fontSize: "16px",
+                      fontSize: "20px",
                       mb: 0.5,
                       color: "#fff",
                       textAlign: "center",
@@ -169,7 +169,7 @@ const Marketplace = () => {
                     <Typography
                       sx={{
                         fontFamily: "VT323",
-                        fontSize: "14px",
+                        fontSize: "18px",
                         color: "#fff",
                       }}
                     >
@@ -179,7 +179,7 @@ const Marketplace = () => {
                       sx={{
                         color: "#0B5CD6",
                         fontFamily: "VT323",
-                        fontSize: "14px",
+                        fontSize: "18px",
                       }}
                     >
                       {item.change}
@@ -188,7 +188,7 @@ const Marketplace = () => {
                       sx={{
                         color: "#0B5CD6",
                         fontFamily: "VT323",
-                        fontSize: "14px",
+                        fontSize: "18px",
                       }}
                     >
                       {item.ticker}
