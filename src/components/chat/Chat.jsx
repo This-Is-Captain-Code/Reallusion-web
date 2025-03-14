@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Box, TextField, IconButton, Typography, Paper } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
@@ -35,7 +36,7 @@ const ChatBubble = (props) => {
     <Box sx={{ 
       width: "100%",
       height: "30vh",
-      bgcolor: "background.paper",
+      bgcolor: "rgba(0,0,0,0.8)",
       borderRadius: 1,
       p: 2,
       display: 'flex',
@@ -65,21 +66,28 @@ const ChatBubble = (props) => {
               sx={{
                 p: 1.5,
                 maxWidth: '70%',
-                bgcolor: message.sender === 'user' ? 'primary.main' : 'background.paper',
-                border: message.sender === 'npc' ? '1px solid rgba(255,255,255,0.1)' : 'none',
-                color: 'white'
+                bgcolor: message.sender === 'user' ? 'primary.main' : 'rgba(0,0,0,0.5)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 1
               }}
             >
               <Typography 
                 sx={{ 
-                  color: message.sender === 'user' ? 'rgba(243,167,158,255)' : 'rgba(127,210,118,255)',
+                  color: message.sender === 'user' ? '#F3A79E' : '#7FD276',
+                  fontFamily: 'VT323',
                   fontWeight: 'bold',
                   mb: 0.5
                 }}
               >
-                {message.sender === 'user' ? 'You:' : 'Agent:'}
+                {message.sender === 'user' ? 'You' : 'Agent'}
               </Typography>
-              <Typography variant="body1" sx={{ fontFamily: 'VT323' }}>
+              <Typography 
+                sx={{ 
+                  color: 'white',
+                  fontFamily: 'VT323',
+                  fontSize: '1.1rem'
+                }}
+              >
                 {message.content}
               </Typography>
               {message.sender === 'npc' && (
@@ -87,14 +95,14 @@ const ChatBubble = (props) => {
                   <IconButton 
                     size="small"
                     onClick={() => handleFeedback(idx, 1)}
-                    color={feedbacks[idx] === 1 ? 'primary' : 'default'}
+                    sx={{ color: feedbacks[idx] === 1 ? '#4CAF50' : 'rgba(255,255,255,0.5)' }}
                   >
                     <ThumbUpIcon fontSize="small" />
                   </IconButton>
                   <IconButton 
                     size="small"
                     onClick={() => handleFeedback(idx, 2)}
-                    color={feedbacks[idx] === 2 ? 'error' : 'default'}
+                    sx={{ color: feedbacks[idx] === 2 ? '#f44336' : 'rgba(255,255,255,0.5)' }}
                   >
                     <ThumbDownIcon fontSize="small" />
                   </IconButton>
@@ -111,7 +119,7 @@ const ChatBubble = (props) => {
             client.setMessages([]);
             setFeedbacks([]);
           }}
-          sx={{ color: 'text.secondary' }}
+          sx={{ color: 'rgba(255,255,255,0.5)' }}
         >
           <RestartAltIcon />
         </IconButton>
@@ -124,18 +132,31 @@ const ChatBubble = (props) => {
           placeholder="Type your message..."
           sx={{ 
             '& .MuiOutlinedInput-root': {
+              color: 'white',
               borderRadius: 1,
-              bgcolor: 'background.paper',
+              bgcolor: 'rgba(0,0,0,0.3)',
               '& fieldset': {
-                borderColor: 'divider'
+                borderColor: 'rgba(255,255,255,0.1)'
+              },
+              '&:hover fieldset': {
+                borderColor: 'rgba(255,255,255,0.2)'
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'primary.main'
               }
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: 'rgba(255,255,255,0.5)',
+              opacity: 1
             }
           }}
         />
         <IconButton 
           onClick={handleSend}
-          color="primary"
           disabled={!text.trim()}
+          sx={{
+            color: text.trim() ? 'primary.main' : 'rgba(255,255,255,0.3)'
+          }}
         >
           <SendIcon />
         </IconButton>
