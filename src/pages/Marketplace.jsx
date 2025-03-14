@@ -19,64 +19,64 @@ const marketData = {
 const Marketplace = () => {
   return (
     <Box sx={{ bgcolor: "#000", minHeight: "100vh", color: "#fff" }}>
-      <Container maxWidth="xl" sx={{ pt: 4 }}>
+      <Container maxWidth="xl" sx={{ pt: 2 }}>
         <Box
           sx={{
             display: "flex",
-            gap: 8,
-            mb: 6,
+            gap: 12,
+            mb: 8,
           }}
         >
-          <Box maxWidth="xl" sx={{ flex: 3, overflow: 'hidden' }}>
+          <Box sx={{ flex: 1.2 }}>
             <Box
               component="img"
               src="/processed-image-no-bg-full-resolution.png"
               sx={{
-                width: "100%", // Ensure the image takes up the full width of the container
-                height: "100%", // Ensure the image takes up the full height of the container
-                objectFit: "cover", // Crop the image to fit the container
-                objectPosition: "center", // Adjust this to control which part of the image is visible
+                width: "120%",
+                height: "auto",
+                mb: 0,
               }}
             />
           </Box>
-          <Box sx={{ flex: 1, pt: 4 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+          <Box sx={{ flex: 1, pt: 8 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Typography
-                variant="h4"
+                variant="h2"
                 sx={{ fontFamily: "VT323", color: "#666" }}
               >
                 Featured
               </Typography>
-              <Typography variant="h4" component="span" sx={{ mr: 1 }}>
+              <Typography variant="h2" component="span" sx={{ mr: 0.5 }}>
                 🔥
               </Typography>
-              <Typography variant="body1" sx={{ color: "#4CAF50" }}>
+              <Typography variant="h2" sx={{ color: "#4CAF50" }}>
                 {marketData.percentChange}
               </Typography>
             </Box>
 
             <Typography
               sx={{
-                fontFamily: "Roboto",
-                fontSize: "96px",
-                mb: 4,
+                fontFamily: "VT323",
+                fontSize: "120px",
+                mb: 3,
+                letterSpacing: "-0.02em",
               }}
             >
               {marketData.name}
             </Typography>
 
-            <Box sx={{ display: "grid", gap: 2 }}>
+            <Box sx={{ display: "grid", gap: 1.5 }}>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography variant="h4" sx={{ color: "#666" }}>Market Cap:</Typography>
-                <Typography variant="h4">{marketData.marketCap}</Typography>
+                <Typography variant="h4" sx={{ color: "#666", fontSize: "24px" }}>Market Cap:</Typography>
+                <Typography variant="h4" sx={{ fontSize: "24px" }}>{marketData.marketCap}</Typography>
               </Box>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>24H Vol:</Typography>
-                <Typography>{marketData.vol24h}</Typography>
+                <Typography sx={{ color: "#666", fontSize: "20px" }}>24H Vol:</Typography>
+                <Typography sx={{ fontSize: "20px" }}>{marketData.vol24h}</Typography>
               </Box>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography sx={{ color: "#666" }}>All-Time Vol:</Typography>
-                <Typography>{marketData.volAllTime}</Typography>
+                <Typography sx={{ color: "#666", fontSize: "20px" }}>All-Time Vol:</Typography>
+                <Typography sx={{ fontSize: "20px" }}>{marketData.volAllTime}</Typography>
               </Box>
             </Box>
 
