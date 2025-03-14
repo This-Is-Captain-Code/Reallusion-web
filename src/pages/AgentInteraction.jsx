@@ -5,9 +5,45 @@ import { Experience } from '../components/Experience';
 import { KeyboardControls, Loader } from '@react-three/drei';
 import { useConvaiClient } from '../hooks/useConvaiClient';
 import ChatBubble from '../components/chat/Chat';
+import { useEffect } from 'react';
 
 function AgentInteraction() {
   const { client } = useConvaiClient('9b11cba4-a37b-11ef-b34c-42010a7be016', 'd21a7c085eaaea922b64b294d702b74a');
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.innerHTML = `
+      {
+        "autosize": true,
+        "symbol": "BINANCE:APTUSDT",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "enable_publishing": false,
+        "hide_top_toolbar": true,
+        "hide_legend": false,
+        "save_image": false,
+        "calendar": false,
+        "hide_volume": false,
+        "support_host": "https://www.tradingview.com"
+      }`;
+    
+    const container = document.getElementById('tradingview-widget');
+    if (container) {
+      container.appendChild(script);
+    }
+
+    return () => {
+      if (container) {
+        container.innerHTML = '';
+      }
+    };
+  }, []);
 
   return (
     <Box sx={{ display: 'flex', bgcolor: 'background.default', minHeight: '100vh' }}>
@@ -33,42 +69,58 @@ function AgentInteraction() {
         </Typography>
       </Paper>
 
-      <Box sx={{ flexGrow: 1, position: 'relative' }}>
-        <KeyboardControls
-          map={[
-            { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
-            { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
-            { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
-            { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
-            { name: 'jump', keys: ['Space'] },
-          ]}
+      <Box sx={{ flexGrow: 1, display: 'flex' }}>
+        <Box 
+          id="tradingview-widget"
+          sx={{ 
+            width: '40%',
+            height: '70vh',
+            bgcolor: 'rgba(0,0,0,0.8)',
+            borderRight: '1px solid rgba(255,255,255,0.1)'
+          }}
         >
-          <Box sx={{ width: '100%', height: '70vh', position: 'relative' }}>
-            <Loader />
-            <Canvas
-              shadows
-              camera={{
-                fov: 45,
-                near: 0.1,
-                far: 200,
-                position: [2.5, 4, 6],
-              }}
-            >
-              <Experience client={client} />
-            </Canvas>
+          <div className="tradingview-widget-container">
+            <div className="tradingview-widget-container__widget"></div>
+          </div>
+        </Box>
+
+        <Box sx={{ flexGrow: 1, position: 'relative' }}>
+          <KeyboardControls
+            map={[
+              { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
+              { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
+              { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
+              { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
+              { name: 'jump', keys: ['Space'] },
+            ]}
+          >
+            <Box sx={{ width: '100%', height: '70vh', position: 'relative' }}>
+              <Loader />
+              <Canvas
+                shadows
+                camera={{
+                  fov: 45,
+                  near: 0.1,
+                  far: 200,
+                  position: [2.5, 4, 6],
+                }}
+              >
+                <Experience client={client} />
+              </Canvas>
+            </Box>
+          </KeyboardControls>
+          
+          <Box sx={{ 
+            position: 'absolute', 
+            bottom: 0, 
+            left: 0, 
+            right: 0,
+            bgcolor: 'background.paper',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            p: 2
+          }}>
+            <ChatBubble client={client} />
           </Box>
-        </KeyboardControls>
-        
-        <Box sx={{ 
-          position: 'absolute', 
-          bottom: 0, 
-          left: 0, 
-          right: 0,
-          bgcolor: 'background.paper',
-          borderTop: '1px solid rgba(255,255,255,0.1)',
-          p: 2
-        }}>
-          <ChatBubble client={client} />
         </Box>
       </Box>
     </Box>
