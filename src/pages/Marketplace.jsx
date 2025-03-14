@@ -87,27 +87,34 @@ const Marketplace = () => {
           </Box>
         </Box>
 
-        <MuiGrid container spacing={2}>
+        <MuiGrid container spacing={0}>
           {items.map((item, index) => (
-            <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
+            <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index} sx={{ p: '1px' }}>
               <Card sx={{ 
                 bgcolor: '#000', 
                 border: '1px solid rgba(255,255,255,0.1)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  border: '1px solid #0B5CD6',
-                  transform: 'scale(1.02)'
+                borderRadius: 0,
+                position: 'relative',
+                '&:before': {
+                  content: '"»"',
+                  position: 'absolute',
+                  right: 8,
+                  top: 4,
+                  color: 'rgba(255,255,255,0.3)',
+                  fontSize: '24px',
+                  fontFamily: 'VT323'
                 }
               }}>
-                <CardContent>
+                <CardContent sx={{ p: '16px !important' }}>
                   <Box sx={{ position: 'relative' }}>
                     <Typography 
                       sx={{ 
                         position: 'absolute',
-                        top: 8,
-                        left: 8,
+                        top: -8,
+                        left: 0,
                         fontFamily: 'VT323',
-                        opacity: 0.5
+                        opacity: 0.3,
+                        fontSize: '14px'
                       }}
                     >
                       01
@@ -119,16 +126,17 @@ const Marketplace = () => {
                     sx={{
                       width: '100%',
                       height: 'auto',
-                      mb: 2
+                      mb: 2,
+                      bgcolor: '#000B14'
                     }}
                   />
-                  <Typography variant="h6" sx={{ fontFamily: 'VT323', fontSize: '24px' }}>
+                  <Typography sx={{ fontFamily: 'VT323', fontSize: '18px', mb: 1 }}>
                     {item.name}
                   </Typography>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-                    <Typography sx={{ fontFamily: 'VT323' }}>{item.price}</Typography>
-                    <Typography sx={{ color: '#4CAF50', fontFamily: 'VT323' }}>{item.change}</Typography>
-                    <Typography sx={{ opacity: 0.7, fontFamily: 'VT323' }}>{item.ticker}</Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography sx={{ fontFamily: 'VT323', fontSize: '14px' }}>{item.price}</Typography>
+                    <Typography sx={{ color: '#4CAF50', fontFamily: 'VT323', fontSize: '14px' }}>{item.change}</Typography>
+                    <Typography sx={{ opacity: 0.5, fontFamily: 'VT323', fontSize: '14px' }}>{item.ticker}</Typography>
                   </Box>
                 </CardContent>
               </Card>
