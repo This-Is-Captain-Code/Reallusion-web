@@ -16,36 +16,103 @@ const items = Array(10).fill({
   ticker: "LLX"
 });
 
+const marketData = {
+  name: "Lily",
+  marketCap: "$ 3,750.0",
+  vol24h: "68.44",
+  volAllTime: "3,714.0",
+  percentChange: "+21.5%"
+};
+
 const Marketplace = () => {
   return (
     <Box sx={{ bgcolor: "#000", minHeight: "100vh", color: "#fff" }}>
-      <Box
-        component="img"
-        src="/processed-image-no-bg-full-resolution.png"
-        sx={{
-          width: '100%',
-          height: '400px',
-          objectFit: 'cover',
-          objectPosition: 'center',
-          mb: 4
-        }}
-      />
-      <Container>
-        <Typography 
-          variant="h2" 
-          sx={{ 
-            fontFamily: 'VT323',
-            fontSize: '48px',
-            mb: 3
-          }}
-        >
-          Featured 🔥 +21.5%
-        </Typography>
+      <Container maxWidth="xl" sx={{ pt: 4 }}>
+        <Box sx={{ 
+          display: 'flex',
+          gap: 8,
+          mb: 6
+        }}>
+          <Box sx={{ flex: 1 }}>
+            <Box
+              component="img"
+              src="/AgentImage.png"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                mb: 2
+              }}
+            />
+          </Box>
+          <Box sx={{ flex: 1, pt: 4 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+              <Typography variant="h4" sx={{ fontFamily: 'VT323', color: '#666' }}>
+                Featured
+              </Typography>
+              <Typography component="span" sx={{ fontSize: 24, mr: 1 }}>
+                🔥
+              </Typography>
+              <Typography sx={{ color: '#4CAF50', fontSize: 24 }}>
+                {marketData.percentChange}
+              </Typography>
+            </Box>
+            
+            <Typography variant="h1" sx={{ 
+              fontFamily: 'VT323',
+              fontSize: '72px',
+              mb: 4
+            }}>
+              {marketData.name}
+            </Typography>
+
+            <Box sx={{ display: 'grid', gap: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography sx={{ color: '#666' }}>Market Cap:</Typography>
+                <Typography>{marketData.marketCap}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography sx={{ color: '#666' }}>24H Vol:</Typography>
+                <Typography>{marketData.vol24h}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography sx={{ color: '#666' }}>All-Time Vol:</Typography>
+                <Typography>{marketData.volAllTime}</Typography>
+              </Box>
+            </Box>
+
+            <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
+              <Typography sx={{ color: '#0B5CD6', cursor: 'pointer' }}>{'[ W ]'}</Typography>
+              <Typography sx={{ color: '#0B5CD6', cursor: 'pointer' }}>{'[ N ]'}</Typography>
+            </Box>
+          </Box>
+        </Box>
+
         <MuiGrid container spacing={2}>
           {items.map((item, index) => (
             <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
-              <Card sx={{ bgcolor: '#000', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Card sx={{ 
+                bgcolor: '#000', 
+                border: '1px solid rgba(255,255,255,0.1)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  border: '1px solid #0B5CD6',
+                  transform: 'scale(1.02)'
+                }
+              }}>
                 <CardContent>
+                  <Box sx={{ position: 'relative' }}>
+                    <Typography 
+                      sx={{ 
+                        position: 'absolute',
+                        top: 8,
+                        left: 8,
+                        fontFamily: 'VT323',
+                        opacity: 0.5
+                      }}
+                    >
+                      01
+                    </Typography>
+                  </Box>
                   <Box
                     component="img"
                     src="/AgentImage.png"
@@ -59,15 +126,28 @@ const Marketplace = () => {
                     {item.name}
                   </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-                    <Typography sx={{ fontFamily: 'Roboto' }}>{item.price}</Typography>
-                    <Typography sx={{ color: '#4CAF50' }}>{item.change}</Typography>
-                    <Typography sx={{ opacity: 0.7 }}>{item.ticker}</Typography>
+                    <Typography sx={{ fontFamily: 'VT323' }}>{item.price}</Typography>
+                    <Typography sx={{ color: '#4CAF50', fontFamily: 'VT323' }}>{item.change}</Typography>
+                    <Typography sx={{ opacity: 0.7, fontFamily: 'VT323' }}>{item.ticker}</Typography>
                   </Box>
                 </CardContent>
               </Card>
             </MuiGrid>
           ))}
         </MuiGrid>
+        
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: 4, 
+          mt: 4,
+          color: '#666',
+          fontFamily: 'VT323'
+        }}>
+          <Typography>{'[ << ]'}</Typography>
+          <Typography>{'[ 1 / 54 ]'}</Typography>
+          <Typography>{'[ >> ]'}</Typography>
+        </Box>
       </Container>
     </Box>
   );
