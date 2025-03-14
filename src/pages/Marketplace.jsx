@@ -1,12 +1,12 @@
 
 import {
   Box,
-  Grid as MuiGrid,
   Card,
   CardContent,
   Typography,
   Container,
 } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 const items = Array(10).fill({
   id: 1,
@@ -87,9 +87,9 @@ const Marketplace = () => {
           </Box>
         </Box>
 
-        <MuiGrid container spacing={0.25}>
+        <Grid2 container spacing={0.25}>
           {items.map((item, index) => (
-            <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
+            <Grid2 xs={12} sm={6} md={4} lg={2.4} key={index}>
               <Card sx={{ 
                 bgcolor: '#000000', 
                 border: '1px solid rgba(255,255,255,0.1)',
@@ -141,9 +141,9 @@ const Marketplace = () => {
                   </Box>
                 </CardContent>
               </Card>
-            </MuiGrid>
+            </Grid2>
           ))}
-        </MuiGrid>
+        </Grid2>
         
         <Box sx={{ 
           display: 'flex', 
