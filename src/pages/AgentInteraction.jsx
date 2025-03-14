@@ -60,8 +60,7 @@ function AgentInteraction() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "300px 1fr",
-          gridTemplateRows: "400px 1fr",
+          gridTemplateColumns: "300px 400px 1fr",
           gap: 0,
           height: "calc(100vh - 64px)",
         }}
@@ -93,8 +92,11 @@ function AgentInteraction() {
           id="tradingview-widget"
           sx={{
             bgcolor: "rgba(0,0,0,0.8)",
-            borderBottom: "1px solid rgba(255,255,255,0.1)",
+            borderRight: "1px solid rgba(255,255,255,0.1)",
             overflow: "hidden",
+            gridRow: "1 / -1",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <div
@@ -112,8 +114,8 @@ function AgentInteraction() {
           sx={{
             position: "relative",
             overflow: "hidden",
-            gridRow: "2/3",
-            gridColumn: "2/3",
+            gridRow: "1/3",
+            gridColumn: "3/3",
           }}
         >
           <KeyboardControls
