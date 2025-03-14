@@ -87,14 +87,15 @@ const Marketplace = () => {
           </Box>
         </Box>
 
-        <MuiGrid container spacing={0}>
+        <MuiGrid container spacing={0.25}>
           {items.map((item, index) => (
-            <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index} sx={{ p: '1px' }}>
+            <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
               <Card sx={{ 
                 bgcolor: '#000', 
                 border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: 0,
                 position: 'relative',
+                height: '100%',
                 '&:before': {
                   content: '"»"',
                   position: 'absolute',
