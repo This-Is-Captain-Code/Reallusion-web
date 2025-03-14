@@ -30,11 +30,11 @@ const Marketplace = () => {
           <Box sx={{ flex: 1 }}>
             <Box
               component="img"
-              src="/AgentImage.png"
+              src="/processed-image-no-bg-full-resolution.png"
               sx={{
-                width: "100%",
+                width: "120%",
                 height: "auto",
-                mb: 2,
+                mb: 0,
               }}
             />
           </Box>
