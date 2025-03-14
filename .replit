@@ -12,6 +12,7 @@ build = ["sh", "-c", "npm run build"]
 [[ports]]
 localPort = 5173
 externalPort = 80
+exposeLocalhost = true
 
 [workflows]
 runButton = "Dev"

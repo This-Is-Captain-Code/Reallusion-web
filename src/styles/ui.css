@@ -1,16 +1,3 @@
-/* Theme variables */
-:root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #1976d2;
-  --sidebar-accent-foreground: #90caf9;
-  --sidebar-border: #333333;
-  --sidebar-ring: #1976d2;
-}
-
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
@@ -33,9 +20,9 @@
 
 .button {
   @apply px-4 py-2 rounded-md transition-all duration-300 flex items-center gap-2;
-  background: linear-gradient(145deg, var(--sidebar-border), var(--sidebar)); /* Using theme variables */
-  color: var(--sidebar-foreground); /* Using theme variables */
-  border: 2pt solid var(--sidebar); /* Using theme variables */
+  background: linear-gradient(145deg, theme('colors.gray.700'), theme('colors.gray.800'));
+  color: theme('colors.white');
+  border: 2pt solid theme('colors.gray.800');
   border-radius: 8pt;
   position: relative;
   overflow: hidden;
@@ -43,7 +30,7 @@
 
 /* Hover effect for buttons */
 .button:hover {
-  background: linear-gradient(145deg, var(--sidebar-border), var(--sidebar)); /* Using theme variables */
+  background: linear-gradient(145deg, theme('colors.gray.600'), theme('colors.gray.800'));
   border-radius: 8pt;
   border-color: #9ba9cf70; /* Change border color only */
 }
