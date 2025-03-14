@@ -62,28 +62,31 @@ const Navbar = () => {
               color: '#0B5CD6',
               fontFamily: 'VT323',
               textTransform: 'none',
+              fontSize: '24px'
             }}
           >
             <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Pools ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
-            data-text="{ Creator }"
+            data-text="[ Creator ]"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
               textTransform: 'none',
+              fontSize: '24px'
             }}
           >
             <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Creator ]</Typography>
           </Button>
           <Button 
             onMouseEnter={handleHover}
-            data-text="{ Connect Wallet }"
+            data-text="[ Connect Wallet ]"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
               textTransform: 'none',
+              fontSize: '24px'
             }}
           >
             <Typography variant="h5" sx={{ fontFamily: 'VT323' }}>[ Connect Wallet ]</Typography>
