@@ -1,6 +1,6 @@
 import {
   Box,
-  Grid,
+  Grid as MuiGrid,
   Card,
   CardContent,
   Typography,
@@ -22,9 +22,9 @@ const Marketplace = () => {
   return (
     <Box sx={{ bgcolor: "#000", minHeight: "100vh", color: "#fff", p: 3 }}>
       <Container>
-        <Grid container spacing={2}>
+        <MuiGrid container spacing={2}>
           {items.map((item) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+            <MuiGrid item xs={12} sm={6} md={4} lg={3} key={item.id}>
               <Card
                 sx={{
                   bgcolor: "rgba(255,255,255,0.1)",
@@ -52,9 +52,9 @@ const Marketplace = () => {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
+            </MuiGrid>
           ))}
-        </Grid>
+        </MuiGrid>
       </Container>
     </Box>
   );
