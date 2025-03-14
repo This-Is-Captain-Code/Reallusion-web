@@ -6,7 +6,7 @@ const theme = createTheme({
     mode: 'dark',
     background: {
       default: '#000000',
-      paper: '#111111',
+      paper: '#000000',
     },
     primary: {
       main: '#1976d2',
@@ -16,14 +16,26 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'monospace, "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontFamily: '"VT323", monospace',
+    },
+    h2: {
+      fontFamily: '"VT323", monospace',
+    },
+    h3: {
+      fontFamily: '"VT323", monospace',
+    },
+    h4: {
+      fontFamily: '"VT323", monospace',
+    },
   },
   components: {
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(255,255,255,0.1)',
-          backdropFilter: 'blur(10px)',
+          backgroundColor: '#000000',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
         },
       },
     },
