@@ -68,7 +68,7 @@ const Navbar = () => {
           </Button>
           <Button 
             onMouseEnter={handleHover}
-            data-text="[ Creator ]"
+            data-text="{ Creator }"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
@@ -79,7 +79,7 @@ const Navbar = () => {
           </Button>
           <Button 
             onMouseEnter={handleHover}
-            data-text="[ Connect Wallet ]"
+            data-text="{ Connect Wallet }"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
