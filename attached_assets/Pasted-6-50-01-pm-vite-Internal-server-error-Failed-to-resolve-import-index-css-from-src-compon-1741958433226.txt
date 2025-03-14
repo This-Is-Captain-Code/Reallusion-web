@@ -1,0 +1,54 @@
+6:50:01 pm [vite] Internal server error: Failed to resolve import "../../index.css" from "src/components/chat/Chat.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/components/chat/Chat.jsx:7:7
+  22 |  import ChatHistory from "./ChatHistory";
+  23 |  import reset from "../../assets/reset.png";
+  24 |  import "../../index.css";
+     |          ^
+  25 |  const ChatBubble = (props) => {
+  26 |    _s();
+      at TransformPluginContext._formatLog (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47841:41)
+      at TransformPluginContext.error (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47838:16)
+      at normalizeUrl (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:45972:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:46091:37
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:46018:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47636:18)
+      at async loadAndTransform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:41320:27)
+6:50:01 pm [vite] (client) Pre-transform error: Failed to resolve import "../../index.css" from "src/components/chat/Chat.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/components/chat/Chat.jsx:7:7
+  22 |  import ChatHistory from "./ChatHistory";
+  23 |  import reset from "../../assets/reset.png";
+  24 |  import "../../index.css";
+     |          ^
+  25 |  const ChatBubble = (props) => {
+  26 |    _s();
+6:50:01 pm [vite] (client) Pre-transform error: Failed to resolve import "../../index.css" from "src/components/chat/ChatBubblev1.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/components/chat/ChatBubblev1.jsx:1:24
+  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import "../../index.css";
+     |          ^
+  19 |  import React from "react";
+  20 |  import { useState } from "react";
+6:50:01 pm [vite] (client) Pre-transform error: Failed to resolve import "../../index.css" from "src/components/chat/ChatHistory.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/components/chat/ChatHistory.jsx:4:7
+  19 |  import { useState } from "react";
+  20 |  import logo from "../../assets/ConvaiLogo.png";
+  21 |  import "../../index.css";
+     |          ^
+  22 |  import ThumbsUp_fill from "../../assets/Thumbsup_fill.png";
+  23 |  import Thumbsdown_fill from "../../assets/Thumbsdown_fill.png";
+6:50:01 pm [vite] (client) Pre-transform error: Failed to resolve import "../../index.css" from "src/components/chat/ChatBubbleV2.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/components/chat/ChatBubbleV2.jsx:7:7
+  22 |  import ThumbsUp_fill from "../../assets/Thumbsup_fill.png";
+  23 |  import Thumbsup_outline from "../../assets/Thumbsup_outline.png";
+  24 |  import "../../index.css";
+     |          ^
+  25 |  const ChatBubblev2 = (props) => {
+  26 |    _s();
