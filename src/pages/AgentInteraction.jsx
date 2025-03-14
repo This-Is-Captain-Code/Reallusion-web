@@ -1,20 +1,22 @@
-
-import { Box, Typography, Container, Paper } from '@mui/material';
-import { Canvas } from '@react-three/fiber';
-import { Experience } from '../components/Experience';
-import { KeyboardControls, Loader } from '@react-three/drei';
-import { useConvaiClient } from '../hooks/useConvaiClient';
-import ChatBubble from '../components/chat/Chat';
-import { useEffect } from 'react';
-import Navbar from '../components/ui/Navbar';
+import { Box, Typography, Container, Paper } from "@mui/material";
+import { Canvas } from "@react-three/fiber";
+import { Experience } from "../components/Experience";
+import { KeyboardControls, Loader } from "@react-three/drei";
+import { useConvaiClient } from "../hooks/useConvaiClient";
+import ChatBubble from "../components/chat/Chat";
+import { useEffect } from "react";
 
 function AgentInteraction() {
-  const { client } = useConvaiClient('9b11cba4-a37b-11ef-b34c-42010a7be016', 'd21a7c085eaaea922b64b294d702b74a');
+  const { client } = useConvaiClient(
+    "9b11cba4-a37b-11ef-b34c-42010a7be016",
+    "d21a7c085eaaea922b64b294d702b74a",
+  );
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-    script.type = 'text/javascript';
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
     script.async = true;
     script.innerHTML = `
       {
@@ -33,103 +35,139 @@ function AgentInteraction() {
         "hide_volume": false,
         "support_host": "https://www.tradingview.com"
       }`;
-    
-    const container = document.getElementById('tradingview-widget');
+
+    const container = document.getElementById("tradingview-widget");
     if (container) {
       container.appendChild(script);
     }
 
     return () => {
       if (container) {
-        container.innerHTML = '';
+        container.innerHTML = "";
       }
     };
   }, []);
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', bgcolor: 'background.default', minHeight: '100vh' }}>
-      <Navbar />
-      <Box sx={{ display: 'flex', flex: 1, p: 0, gap: 0, height: 'calc(100vh - 64px)' }}>
-      <Paper 
-        elevation={0} 
-        sx={{ 
-          width: '300px',
-          bgcolor: 'rgba(0,0,0,0.8)',
-          p: 3,
-          borderRadius: 0,
-          borderRight: '1px solid rgba(255,255,255,0.1)',
-          height: '100%',
-          overflow: 'auto'
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        bgcolor: "background.default",
+        minHeight: "100vh",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flex: 1,
+          p: 0,
+          gap: 0,
+          height: "calc(100vh - 64px)",
         }}
       >
-        <Typography 
-          variant="h4" 
-          sx={{ 
-            fontFamily: 'VT323',
-            color: 'white',
-            mb: 2 
+        <Paper
+          elevation={0}
+          sx={{
+            width: "300px",
+            bgcolor: "rgba(0,0,0,0.8)",
+            p: 3,
+            borderRadius: 0,
+            borderRight: "1px solid rgba(255,255,255,0.1)",
+            height: "100%",
+            overflow: "auto",
           }}
         >
-          Control Panel
-        </Typography>
-      </Paper>
-
-      <Box sx={{ flexGrow: 1, display: 'flex', height: '100%', overflow: 'hidden' }}>
-        <Box 
-          id="tradingview-widget"
-          sx={{ 
-            width: '40%',
-            height: '100%',
-            bgcolor: 'rgba(0,0,0,0.8)',
-            borderRight: '1px solid rgba(255,255,255,0.1)',
-            overflow: 'hidden'
-          }}
-        >
-          <div className="tradingview-widget-container" style={{ height: '100%' }}>
-            <div className="tradingview-widget-container__widget" style={{ height: '100%' }}></div>
-          </div>
-        </Box>
-
-        <Box sx={{ flexGrow: 1, position: 'relative', height: '100%', overflow: 'hidden' }}>
-          <KeyboardControls
-            map={[
-              { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
-              { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
-              { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
-              { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
-              { name: 'jump', keys: ['Space'] },
-            ]}
+          <Typography
+            variant="h4"
+            sx={{
+              fontFamily: "VT323",
+              color: "white",
+              mb: 2,
+            }}
           >
-            <Box sx={{ width: '100%', height: '70vh', position: 'relative' }}>
-              <Loader />
-              <Canvas
-                shadows
-                camera={{
-                  fov: 45,
-                  near: 0.1,
-                  far: 200,
-                  position: [2.5, 4, 6],
-                }}
-              >
-                <Experience client={client} />
-              </Canvas>
+            Control Panel
+          </Typography>
+        </Paper>
+
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            height: "100%",
+            overflow: "hidden",
+          }}
+        >
+          <Box
+            id="tradingview-widget"
+            sx={{
+              width: "40%",
+              height: "100%",
+              bgcolor: "rgba(0,0,0,0.8)",
+              borderRight: "1px solid rgba(255,255,255,0.1)",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              className="tradingview-widget-container"
+              style={{ height: "100%" }}
+            >
+              <div
+                className="tradingview-widget-container__widget"
+                style={{ height: "100%" }}
+              ></div>
+            </div>
+          </Box>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              position: "relative",
+              height: "100%",
+              overflow: "hidden",
+            }}
+          >
+            <KeyboardControls
+              map={[
+                { name: "forward", keys: ["ArrowUp", "w", "W"] },
+                { name: "backward", keys: ["ArrowDown", "s", "S"] },
+                { name: "left", keys: ["ArrowLeft", "a", "A"] },
+                { name: "right", keys: ["ArrowRight", "d", "D"] },
+                { name: "jump", keys: ["Space"] },
+              ]}
+            >
+              <Box sx={{ width: "100%", height: "70vh", position: "relative" }}>
+                <Loader />
+                <Canvas
+                  shadows
+                  camera={{
+                    fov: 45,
+                    near: 0.1,
+                    far: 200,
+                    position: [2.5, 4, 6],
+                  }}
+                >
+                  <Experience client={client} />
+                </Canvas>
+              </Box>
+            </KeyboardControls>
+
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                bgcolor: "background.paper",
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+                p: 2,
+                maxHeight: "30vh",
+              }}
+            >
+              <ChatBubble client={client} />
             </Box>
-          </KeyboardControls>
-          
-          <Box sx={{ 
-            position: 'absolute', 
-            bottom: 0, 
-            left: 0, 
-            right: 0,
-            bgcolor: 'background.paper',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            p: 2,
-            maxHeight: '30vh'
-          }}>
-            <ChatBubble client={client} />
           </Box>
         </Box>
-      </Box>
       </Box>
     </Box>
   );
