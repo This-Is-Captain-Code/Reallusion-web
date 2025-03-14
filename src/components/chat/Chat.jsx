@@ -56,7 +56,8 @@ const ChatBubble = (props) => {
               display: 'flex',
               justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
               alignItems: 'flex-start',
-              gap: 1
+              gap: 1,
+              width: '100%'
             }}
           >
             <Paper 
@@ -69,6 +70,15 @@ const ChatBubble = (props) => {
                 color: 'white'
               }}
             >
+              <Typography 
+                sx={{ 
+                  color: message.sender === 'user' ? 'rgba(243,167,158,255)' : 'rgba(127,210,118,255)',
+                  fontWeight: 'bold',
+                  mb: 0.5
+                }}
+              >
+                {message.sender === 'user' ? 'You:' : 'Agent:'}
+              </Typography>
               <Typography variant="body1" sx={{ fontFamily: 'VT323' }}>
                 {message.content}
               </Typography>
