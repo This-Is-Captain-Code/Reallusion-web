@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, Typography, Container } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const items = Array(10).fill({
   id: 1,
@@ -17,6 +18,7 @@ const marketData = {
 };
 
 const Marketplace = () => {
+  const navigate = useNavigate();
   return (
     <Box sx={{ bgcolor: "#000", minHeight: "100vh", color: "#fff" }}>
       <Container maxWidth="xl" sx={{ pt: 2 }}>
@@ -106,7 +108,7 @@ const Marketplace = () => {
           }}
         >
           {items.map((item, index) => (
-            <Box key={index}>
+            <Box key={index} onClick={() => navigate('/agent-interaction')}>
               <Card
                 sx={{
                   bgcolor: "#000000",
