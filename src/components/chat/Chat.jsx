@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, TextField, IconButton, Typography, Paper } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
@@ -9,7 +8,15 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 const ChatBubble = (props) => {
   const { client } = props;
   const [text, setText] = useState("");
+  const [messages, setMessages] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
+
+  // Update messages when client changes
+  useEffect(() => {
+    if (client?.messages) {
+      setMessages(client.messages);
+    }
+  }, [client?.messages]);
 
   const handleSend = () => {
     if (text.trim()) {
@@ -50,7 +57,7 @@ const ChatBubble = (props) => {
         flexDirection: 'column',
         gap: 1
       }}>
-        {client?.messages?.map((message, idx) => (
+        {messages?.map((message, idx) => (
           <Box 
             key={idx}
             sx={{
