@@ -91,7 +91,7 @@ const Marketplace = () => {
           {items.map((item, index) => (
             <MuiGrid item xs={12} sm={6} md={4} lg={2.4} key={index}>
               <Card sx={{ 
-                bgcolor: 'transparent', 
+                bgcolor: '#000000', 
                 border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: 0,
                 position: 'relative',
