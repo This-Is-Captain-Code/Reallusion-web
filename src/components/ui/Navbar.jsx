@@ -1,42 +1,39 @@
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
-import { useState, useEffect } from 'react';
 
-const generateRandomChar = () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
-  return chars[Math.floor(Math.random() * chars.length)];
-};
+import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const Navbar = () => {
-  const [hoveredText, setHoveredText] = useState('');
-  const [originalText, setOriginalText] = useState('');
-  const [isGlitching, setIsGlitching] = useState(false);
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+  
+  const scrambleText = (target, originalText) => {
+    let currentText = originalText;
+    let iteration = 0;
+    const duration = 0.5;
+    
+    clearInterval(target.interval);
+    
+    target.interval = setInterval(() => {
+      target.innerText = currentText
+        .split('')
+        .map((letter, index) => {
+          if (index < iteration) {
+            return originalText[index];
+          }
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join('');
+        
+      if (iteration >= originalText.length) {
+        clearInterval(target.interval);
+      }
+      
+      iteration += 1 / 3;
+    }, 30);
+  };
 
-  useEffect(() => {
-    if (isGlitching) {
-      let iterations = 0;
-      const interval = setInterval(() => {
-        iterations += 1;
-        setHoveredText(prev => 
-          originalText.split('').map((char, idx) => 
-            Math.random() > 0.5 ? originalText[idx] : generateRandomChar()
-          ).join('')
-        );
-        if (iterations > 10) {
-          clearInterval(interval);
-          setHoveredText(originalText);
-          setIsGlitching(false);
-        }
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [isGlitching, originalText]);
-
-  const handleHover = (text) => {
-    if (!isGlitching) {
-      setOriginalText(text);
-      setHoveredText(text.split('').map(() => generateRandomChar()).join(''));
-      setIsGlitching(true);
-    }
+  const handleHover = (e) => {
+    scrambleText(e.target, e.target.getAttribute('data-text'));
   };
 
   return (
@@ -47,7 +44,8 @@ const Navbar = () => {
     }}>
       <Toolbar sx={{ justifyContent: 'space-between', px: 4 }}>
         <Button 
-          onMouseEnter={() => handleHover('Oracle')}
+          onMouseEnter={handleHover}
+          data-text="Oracle"
           sx={{ 
             color: '#0B5CD6',
             fontFamily: 'VT323',
@@ -55,12 +53,13 @@ const Navbar = () => {
             textTransform: 'none',
           }}
         >
-          {hoveredText === 'Oracle' ? hoveredText : 'Oracle'}
+          Oracle
         </Button>
 
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button 
-            onMouseEnter={() => handleHover('[ Pools ]')}
+            onMouseEnter={handleHover}
+            data-text="[ Pools ]"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
@@ -68,10 +67,11 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            {hoveredText === '[ Pools ]' ? hoveredText : '[ Pools ]'}
+            [ Pools ]
           </Button>
           <Button 
-            onMouseEnter={() => handleHover('[ Creator ]')}
+            onMouseEnter={handleHover}
+            data-text="[ Creator ]"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
@@ -79,10 +79,11 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            {hoveredText === '[ Creator ]' ? hoveredText : '[ Creator ]'}
+            [ Creator ]
           </Button>
           <Button 
-            onMouseEnter={() => handleHover('[ Connect Wallet ]')}
+            onMouseEnter={handleHover}
+            data-text="[ Connect Wallet ]"
             sx={{ 
               color: '#0B5CD6',
               fontFamily: 'VT323',
@@ -90,7 +91,7 @@ const Navbar = () => {
               textTransform: 'none',
             }}
           >
-            {hoveredText === '[ Connect Wallet ]' ? hoveredText : '[ Connect Wallet ]'}
+            [ Connect Wallet ]
           </Button>
         </Box>
       </Toolbar>
