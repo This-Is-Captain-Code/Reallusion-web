@@ -1,0 +1,27 @@
+10:47:00 pm [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/pages/Marketplace.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/pages/Marketplace.jsx:2:28
+  17 |  var _s = $RefreshSig$();
+  18 |  import { Box, Card, CardContent, Typography, Container } from "@mui/material";
+  19 |  import { useNavigate } from "react-router-dom";
+     |                               ^
+  20 |  const items = Array(10).fill({
+  21 |    id: 1,
+      at TransformPluginContext._formatLog (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47841:41)
+      at TransformPluginContext.error (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47838:16)
+      at normalizeUrl (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:45972:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:46091:37
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:46018:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:47636:18)
+      at async loadAndTransform (file:///C:/Users/dvije/Documents/GitHub/Reallusion-web/node_modules/vite/dist/node/chunks/dep-glQox-ep.js:41320:27)
+10:47:00 pm [vite] (client) Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/Marketplace.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/Users/dvije/Documents/GitHub/Reallusion-web/src/pages/Marketplace.jsx:2:28
+  17 |  var _s = $RefreshSig$();
+  18 |  import { Box, Card, CardContent, Typography, Container } from "@mui/material";
+  19 |  import { useNavigate } from "react-router-dom";
+     |                               ^
+  20 |  const items = Array(10).fill({
+  21 |    id: 1,
