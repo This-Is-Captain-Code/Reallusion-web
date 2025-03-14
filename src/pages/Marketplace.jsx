@@ -107,7 +107,7 @@ const Marketplace = () => {
             <Box key={index}>
               <Card
                 sx={{
-                  bgcolor: "black",
+                  bgcolor: "#000000",
                   border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: 0,
                   position: "relative",
