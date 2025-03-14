@@ -59,44 +59,17 @@ function AgentInteraction() {
     >
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: "300px 400px 1fr",
-          gap: 0,
+          display: "flex",
           height: "calc(100vh - 64px)",
         }}
       >
-        <Paper
-          elevation={0}
-          sx={{
-            bgcolor: "rgba(0,0,0,0.8)",
-            p: 3,
-            borderRadius: 0,
-            borderRight: "1px solid rgba(255,255,255,0.1)",
-            gridRow: "1 / -1",
-            overflow: "auto",
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: "VT323",
-              color: "white",
-              mb: 2,
-            }}
-          >
-            Control Panel
-          </Typography>
-        </Paper>
-
         <Box
           id="tradingview-widget"
           sx={{
+            width: "40%",
             bgcolor: "rgba(0,0,0,0.8)",
             borderRight: "1px solid rgba(255,255,255,0.1)",
             overflow: "hidden",
-            gridRow: "1 / -1",
-            display: "flex",
-            alignItems: "center",
           }}
         >
           <div
@@ -114,8 +87,7 @@ function AgentInteraction() {
           sx={{
             position: "relative",
             overflow: "hidden",
-            gridRow: "1/3",
-            gridColumn: "3/3",
+            width: "60%",
           }}
         >
           <KeyboardControls
