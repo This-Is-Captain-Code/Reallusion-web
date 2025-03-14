@@ -1,14 +1,31 @@
+
+import { Box, Container, ThemeProvider, createTheme } from '@mui/material';
 import CreateAgent from './pages/CreateAgent';
 import Marketplace from './pages/Marketplace';
 import AgentInteraction from './pages/AgentInteraction';
-import './styles/globals.css';
-import './styles/ui.css';
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="w-full h-full">
-      <Marketplace />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box sx={{
+        width: '100%',
+        height: '100vh',
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        overflow: 'hidden'
+      }}>
+        <Marketplace />
+      </Box>
+    </ThemeProvider>
   );
 }
 
