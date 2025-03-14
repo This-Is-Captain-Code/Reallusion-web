@@ -49,15 +49,17 @@ function AgentInteraction() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', bgcolor: 'background.default', minHeight: '100vh' }}>
       <Navbar />
-      <Box sx={{ display: 'flex', flex: 1 }}>
+      <Box sx={{ display: 'flex', flex: 1, p: 0, gap: 0, height: 'calc(100vh - 64px)' }}>
       <Paper 
         elevation={0} 
         sx={{ 
-          width: '300px', 
-          bgcolor: 'rgba(0,0,0,0.8)', 
+          width: '300px',
+          bgcolor: 'rgba(0,0,0,0.8)',
           p: 3,
           borderRadius: 0,
-          borderRight: '1px solid rgba(255,255,255,0.1)'
+          borderRight: '1px solid rgba(255,255,255,0.1)',
+          height: '100%',
+          overflow: 'auto'
         }}
       >
         <Typography 
@@ -72,22 +74,23 @@ function AgentInteraction() {
         </Typography>
       </Paper>
 
-      <Box sx={{ flexGrow: 1, display: 'flex' }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', height: '100%', overflow: 'hidden' }}>
         <Box 
           id="tradingview-widget"
           sx={{ 
             width: '40%',
-            height: '70vh',
+            height: '100%',
             bgcolor: 'rgba(0,0,0,0.8)',
-            borderRight: '1px solid rgba(255,255,255,0.1)'
+            borderRight: '1px solid rgba(255,255,255,0.1)',
+            overflow: 'hidden'
           }}
         >
-          <div className="tradingview-widget-container">
-            <div className="tradingview-widget-container__widget"></div>
+          <div className="tradingview-widget-container" style={{ height: '100%' }}>
+            <div className="tradingview-widget-container__widget" style={{ height: '100%' }}></div>
           </div>
         </Box>
 
-        <Box sx={{ flexGrow: 1, position: 'relative' }}>
+        <Box sx={{ flexGrow: 1, position: 'relative', height: '100%', overflow: 'hidden' }}>
           <KeyboardControls
             map={[
               { name: 'forward', keys: ['ArrowUp', 'w', 'W'] },
@@ -120,7 +123,8 @@ function AgentInteraction() {
             right: 0,
             bgcolor: 'background.paper',
             borderTop: '1px solid rgba(255,255,255,0.1)',
-            p: 2
+            p: 2,
+            maxHeight: '30vh'
           }}>
             <ChatBubble client={client} />
           </Box>
