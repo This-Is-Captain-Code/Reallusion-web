@@ -6,7 +6,6 @@ import {
   Typography,
   Container,
 } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2";
 
 const items = Array(10).fill({
   id: 1,
@@ -87,9 +86,9 @@ const Marketplace = () => {
           </Box>
         </Box>
 
-        <Grid2 container spacing={0.25}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(5, 1fr)' }, gap: 0.25 }}>
           {items.map((item, index) => (
-            <Grid2 xs={12} sm={6} md={4} lg={2.4} key={index}>
+            <Box key={index}>
               <Card sx={{ 
                 bgcolor: '#000000', 
                 border: '1px solid rgba(255,255,255,0.1)',
@@ -141,9 +140,9 @@ const Marketplace = () => {
                   </Box>
                 </CardContent>
               </Card>
-            </Grid2>
+            </Box>
           ))}
-        </Grid2>
+        </Box>
         
         <Box sx={{ 
           display: 'flex', 
