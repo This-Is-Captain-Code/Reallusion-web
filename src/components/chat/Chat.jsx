@@ -4,7 +4,7 @@ import ChatBubblev1 from "./ChatBubblev1";
 import ChatBubblev2 from "./ChatBubbleV2";
 import ChatHistory from "./ChatHistory";
 import reset from "../../assets/reset.png";
-import "../../index.css";
+import "../../../src/index.css";
 
 const ChatBubble = (props) => {
   const { chatHistory, client } = props;

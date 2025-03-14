@@ -1,4 +1,4 @@
-import '../../index.css';
+import '../../../src/index.css';
 import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/ConvaiLogo.png';
@@ -147,7 +147,7 @@ const ChatBubblev1 = (props) => {
             }}
           >
             <img
-            
+
             loading="lazy"
             src={logo} height="30px" width="100px" alt="Convai chat logo"></img>
           </div>

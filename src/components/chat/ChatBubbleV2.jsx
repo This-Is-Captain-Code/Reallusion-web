@@ -4,7 +4,7 @@ import Thumbsdownoutline from '../../assets/Thumbsdownoutline.png';
 import Thumbsdown_fill from '../../assets/Thumbsdown_fill.png';
 import ThumbsUp_fill from '../../assets/Thumbsup_fill.png';
 import Thumbsup_outline from '../../assets/Thumbsup_outline.png';
-import '../../index.css';
+import "../../../src/index.css";
 
 const ChatBubblev2 = (props) => {
   var {
@@ -151,8 +151,8 @@ const ChatBubblev2 = (props) => {
                           <img
                             src={
                               feedbacks[idx] === 2
-                                ? { Thumbsdown_fill }
-                                : { Thumbsdownoutline }
+                                ? Thumbsdown_fill
+                                : Thumbsdownoutline
                             }
                             alt=""
                             height="17px"

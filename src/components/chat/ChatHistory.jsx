@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import logo from "../../assets/ConvaiLogo.png";
-import "../../index.css";
+import "../../../src/index.css";
 import ThumbsUp_fill from "../../assets/Thumbsup_fill.png";
 import Thumbsdown_fill from "../../assets/Thumbsdown_fill.png";
 import Thumbsup_outline from "../../assets/Thumbsup_outline.png";

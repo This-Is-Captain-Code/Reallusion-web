@@ -1,0 +1,30 @@
+
+/* Base styles */
+:root {
+  --chat-background: rgba(0, 0, 0, 0.8);
+  --chat-text: #ffffff;
+}
+
+.chat-container {
+  background: var(--chat-background);
+  color: var(--chat-text);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--chat-text);
+}
+
+.chat-button {
+  background: #0B5CD6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
