@@ -27,17 +27,20 @@ const Marketplace = () => {
             mb: 8,
           }}
         >
-          <Box sx={{ flex: 1.2 }}>
+        <Box sx={{ flex: 1.2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Box maxWidth="xl" sx={{ flex: 1, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box
               component="img"
               src="/processed-image-no-bg-full-resolution.png"
               sx={{
-                width: "120%",
-                height: "auto",
-                mb: 0,
+                width: "100%", // Ensure the image takes up the full width of the container
+                height: "100%", // Ensure the image takes up the full height of the container
+                objectFit: "cover", // Crop the image to fit the container
+                objectPosition: "center", // Adjust this to control which part of the image is visible
               }}
             />
           </Box>
+        </Box>
           <Box sx={{ flex: 1, pt: 8 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <Typography
@@ -57,9 +60,8 @@ const Marketplace = () => {
             <Typography
               sx={{
                 fontFamily: "VT323",
-                fontSize: "120px",
-                mb: 3,
-                letterSpacing: "-0.02em",
+                fontSize: "96px",
+                mb: 4,
               }}
             >
               {marketData.name}
