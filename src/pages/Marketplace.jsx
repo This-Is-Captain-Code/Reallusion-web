@@ -118,30 +118,27 @@ const Marketplace = () => {
                   "&:hover": {
                     border: "1px solid #0B5CD6",
                   },
-                  "&:before": {
-                    content: '"»"',
-                    position: "absolute",
-                    right: 8,
-                    top: 4,
-                    color: "#0B5CD6",
-                    fontSize: "24px",
-                    fontFamily: "VT323",
-                  },
                 }}
               >
                 <CardContent sx={{ p: "12px !important" }}>
-                  <Box sx={{ position: "relative" }}>
+                  <Box sx={{ position: "relative", mb: 1, display: 'flex', justifyContent: 'space-between' }}>
                     <Typography
                       sx={{
-                        position: "absolute",
-                        top: -4,
-                        left: 0,
                         fontFamily: "VT323",
-                        color: "#0B5CD6",
-                        fontSize: "14px",
+                        color: "#666",
+                        fontSize: "32px",
                       }}
                     >
                       01
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: "VT323",
+                        color: "#0B5CD6",
+                        fontSize: "32px",
+                      }}
+                    >
+                      »
                     </Typography>
                   </Box>
                   <Box
@@ -150,51 +147,81 @@ const Marketplace = () => {
                     sx={{
                       width: "100%",
                       height: "auto",
-                      mb: 1,
+                      mb: 2,
                       bgcolor: "#000B14",
                     }}
                   />
                   <Typography
                     sx={{
                       fontFamily: "VT323",
-                      fontSize: "20px",
-                      mb: 0.5,
+                      fontSize: "32px",
+                      mb: 1,
                       color: "#fff",
-                      textAlign: "center",
                     }}
                   >
                     {item.name}
                   </Typography>
-                  <Box
-                    sx={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <Typography
-                      sx={{
-                        fontFamily: "VT323",
-                        fontSize: "18px",
-                        color: "#fff",
-                      }}
-                    >
-                      {item.price}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "#0B5CD6",
-                        fontFamily: "VT323",
-                        fontSize: "18px",
-                      }}
-                    >
-                      {item.change}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "#0B5CD6",
-                        fontFamily: "VT323",
-                        fontSize: "18px",
-                      }}
-                    >
-                      {item.ticker}
-                    </Typography>
+                  <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "VT323",
+                          fontSize: "14px",
+                          color: "#666",
+                        }}
+                      >
+                        Market Cap:
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: "VT323",
+                          fontSize: "20px",
+                          color: "#fff",
+                        }}
+                      >
+                        {item.price}
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "VT323",
+                          fontSize: "14px",
+                          color: "#666",
+                        }}
+                      >
+                        24H Change
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#4CAF50",
+                          fontFamily: "VT323",
+                          fontSize: "20px",
+                        }}
+                      >
+                        {item.change}
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "VT323",
+                          fontSize: "14px",
+                          color: "#666",
+                        }}
+                      >
+                        Ticket
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#0B5CD6",
+                          fontFamily: "VT323",
+                          fontSize: "20px",
+                        }}
+                      >
+                        {item.ticker}
+                      </Typography>
+                    </Box>
                   </Box>
                 </CardContent>
               </Card>
