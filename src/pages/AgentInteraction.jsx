@@ -6,6 +6,7 @@ import { KeyboardControls, Loader } from '@react-three/drei';
 import { useConvaiClient } from '../hooks/useConvaiClient';
 import ChatBubble from '../components/chat/Chat';
 import { useEffect } from 'react';
+import Navbar from '../components/ui/Navbar';
 
 function AgentInteraction() {
   const { client } = useConvaiClient('9b11cba4-a37b-11ef-b34c-42010a7be016', 'd21a7c085eaaea922b64b294d702b74a');
@@ -46,7 +47,9 @@ function AgentInteraction() {
   }, []);
 
   return (
-    <Box sx={{ display: 'flex', bgcolor: 'background.default', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', bgcolor: 'background.default', minHeight: '100vh' }}>
+      <Navbar />
+      <Box sx={{ display: 'flex', flex: 1 }}>
       <Paper 
         elevation={0} 
         sx={{ 
@@ -122,6 +125,7 @@ function AgentInteraction() {
             <ChatBubble client={client} />
           </Box>
         </Box>
+      </Box>
       </Box>
     </Box>
   );
